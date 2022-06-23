@@ -12,7 +12,7 @@
 #include "Otto_gestures.h"
 #include "Otto_mouths.h"
 #include "Otto_matrix.h"
-
+#include "Otto_arms.h"
 //-- Constants
 #define FORWARD     1
 #define BACKWARD    -1
@@ -88,19 +88,23 @@ class Otto
     void enableServoLimit(int speed_limit_degree_per_sec = SERVO_LIMIT_DEFAULT);
     void disableServoLimit();
 
+    // -- Arms
+    void initArms(int AL, int AR);
+
   private:
 
     Oscillator servo[4];
+    Oscillator arms[2];
     Otto_Matrix ledmatrix;
+    Otto_Arms arms;
     int servo_pins[4];
     int servo_trim[4];
-
     int pinBuzzer;
 
     unsigned long final_time;
     unsigned long partial_time;
     float increment[4];
-
+    bool has_arms;
     bool isOttoResting;
 
     unsigned long int getMouthShape(int number);

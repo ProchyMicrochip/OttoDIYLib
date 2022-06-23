@@ -31,6 +31,12 @@ void Otto::init(int YL, int YR, int RL, int RR, bool load_calibration, int Buzze
  
 }
 ///////////////////////////////////////////////////////
+void Otto::initArms(int AR, int AL){
+  arms.init(AR,AL);
+  arms.attach();
+  has_arms = true;
+}
+///////////////////////////////////////////////////////
 void Otto::initMATRIX(int DIN, int CS, int CLK, int rotate){
 ledmatrix.init( DIN, CS, CLK, 1, rotate);   // set up Matrix display
 }
@@ -46,6 +52,9 @@ void Otto::attachServos(){
     servo[1].attach(servo_pins[1]);
     servo[2].attach(servo_pins[2]);
     servo[3].attach(servo_pins[3]);
+    if(has_arms){
+      arms.attach();
+    }
 }
 
 void Otto::detachServos(){
@@ -53,6 +62,9 @@ void Otto::detachServos(){
     servo[1].detach();
     servo[2].detach();
     servo[3].detach();
+    if(has_arms){
+      arms.detach();
+    }
 }
 
 ///////////////////////////////////////////////////////////////////
