@@ -1,6 +1,6 @@
 #ifndef Otto_arms_h
 #define Otto_arms_h
-#include "Oscillator.h"
+#include <Oscillator.h>
 enum ARMS{
     LEFT = 1,
     RIGHT = 0
@@ -11,7 +11,7 @@ class Otto_Arms{
         void init(int AR, int AL);
         void attach(void);
         void detach(void);
-        void wave(void);
+        void arms_wave(void);
         void arms_up(void);
         void arms_down(void);
         void arm_up(ARMS arm);

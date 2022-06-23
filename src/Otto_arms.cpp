@@ -37,6 +37,6 @@ void Otto_Arms::arms_down(ARMS arm){
         arms[1].SetPosition(45);
         arms[0].SetPosition(135);
 }
-void Otto_Arms::wave(){
+void Otto_Arms::arms_wave(){
     
 }
